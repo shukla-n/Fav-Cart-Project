@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row" style="min-height:300px;">
+    <div class="h1 text-center">Products</div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <div class="col-sm-3 mt-4">
+                <!--Start List--->
+
+                <ul class="list-group">
+  <li class="list-group-item active bg-dark text-warning" aria-current="true">Our Brands</li>
+  {% if cat %}
+  {% for x in cat %}
+                    <a href="/user/product?abc={{x.id}}" style="text-decoration:none;"><li class="list-group-item">{{x.cname}}</li></a>
+  {%endfor%}
+  {%endif%}
+  <a href="/user/product/"><li class="list-group-item">All Brand</li></a>
+
+
+</ul>
+
+                <!--End List--->
+            </div>
+
+            <div class="col-sm-9">
+                <div class="row">
+                    {% if prod %}
+                {% for x in prod %}
+                <div class="col-sm-3 mt-4">
+                    <!--start card--->
+                    <div class="card w-100">
+                        <img src="/{{x.ppic}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="text-center"> {{x.category}}</p>
+                            <p class="text-center"><b>{{x.name}}</b></p>
+                            <a href="/user/viewdetails?msg={{x.id}}" class="btn  rounded-pill text w-100"style="background:#3c463e; color:white;">Buy Now</a><br>
+                            <a href="/user/process?pid={{x.id}}" target="_blank" class="btn  rounded-pill text w-100 mt-1"> <i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+
+                    <!--end card--->
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+
+</div>
+{% endblock %}

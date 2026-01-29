@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fav Cart</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link href="{% static 'css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet"/>
+    <style>
+        .outer
+        {
+        background:#eeeeee;
+        }
+        .t
+        {
+        min-height:35px;
+        text-align:center;
+        padding-top:4px;
+        }
+        .ic
+        {
+        font-size:25px;
+        padding-top:7px;
+        padding-left:5px;
+        color:blue;
+        border-radius:5px;
+        }
+        .ic:hover
+        {
+        background:white;
+        color:blue;
+        font-size:30px;
+        transition:all ease 1s;
+        transform:rotate(360deg);
+        }
+        .header1
+        {
+        min-height:55px;
+        }
+        .menu
+        {
+            min-height:45px;
+            background:#3c463e;
+
+        }
+        .m
+        {
+         margin:0px auto;
+        }
+        #menu ul li a
+        {
+        color:white;
+        font-size:16px;
+
+        }
+        #menu ul li a:hover
+        {
+        color:white;
+        border-bottom:2px solid white;
+
+        }
+        
+        .newproduct
+        {
+        min-height:500px;
+
+        }
+        .Services
+        {
+        min-height:500px;
+        color:#ff8f00;
+        background:#ff8f00;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        background:white;
+        }
+        .log
+        {
+        margin-top:40px;
+        margin-left:100px;
+        height:70px;
+        width:150px;
+        }
+        .log1
+        {
+        margin-top:20px;
+        margin-left:100px;
+        height:70px;
+        width:150px;
+        }
+        .bfooter
+        {
+        min-height:40px;
+        margin-top:1px;
+        background:#3c463e;
+        }
+        .fav
+        {
+        font-family:iELEPHANT;
+        }
+         .ik
+        {
+        font-size:25px;
+        padding-top:7px;
+        padding-left:5px;
+        color:red;
+        border-radius:5px;
+        }
+        .ik:hover
+        {
+        background:white;
+        color:red;
+        font-size:30px;
+        transition:all ease 1s;
+        transform:rotate(360deg);
+        }
+          .im
+        {
+        font-size:25px;
+        padding-top:7px;
+        padding-left:5px;
+        color:green;
+        border-radius:5px;
+        }
+        .im:hover
+        {
+        background:white;
+        color:green;
+        font-size:30px;
+        transition:all ease 1s;
+        transform:rotate(360deg);
+        }
+   #menu li {
+    color:white;
+    padding-left:7px;
+
+    }
+     #menu li :hover {
+    color:black;
+    padding-left:7px;
+    font-size:17px;
+    background:white;
+    border-radius:10px 0px 10px 0px;
+    border:1px solid black;
+    transform: translate(-5px,-5px);
+    transition:all ease 1s;
+
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid outer  ">
+    <div class="row t bg-light border-bottom ">
+        <div class="col-sm-4  ">
+            <i class="fa fa-phone im " title="+91 987654321"></i>+91 876543202
+        </div>
+        <div class="col-sm-4  p-2 ">
+            WELCOME TO FAV <b style="color:#3c463e;">CART<i class="fa fa-shopping-cart"></i>INDIA</b>
+        </div>
+        <div class="col-sm-4  border-end  ">
+            <i class="fa fa-facebook ic "></i>
+            <i class="fa fa-youtube ik"></i>
+
+            <i class="fa fa-twitter ic "></i>
+            <i class="fa fa-instagram ik "></i>
+            <i class="fa fa-whatsapp  im" title="8303361102"></i>
+        </div>
+
+    </div>
+    <div class="row header1 py-2">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 fs-3">
+            FAV <b style="color:#3c463e;  ">CART INDIA<i class="fa fa-shopping-cart"></i></b>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2">
+            <a href="/user/cart/">
+                <b class="btn btn-outline-danger">
+                    <i class="fa fa-shopping-cart"></i> {{noofitemsincart}}
+                </b>
+            </a>
+
+        </div>
+    </div>
+    <div>
+        <!--start menu-->
+        <div class="row menu ">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 px-5">
+                <nav class="navbar navbar-expand-lg navbar-light " id="menu">
+                    <div class="container-fluid ">
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav m">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/user/home/"><i
+                                            class="fa fa-home"></i>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/product/">Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/myorders/">My Orders</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/about/"><i class="fa fa-info-circle"></i>About
+                                        Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/contactus"><i class="fa fa-address-book"></i>
+                                        Contact Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/signup">Signup</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/myprofile/">My Profile</a>
+                                </li>
+                                {% if request.session.userid %}
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/user/logout/">Log out</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/user/signin/">Sign in</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{request.session.userid}}</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <!--end menu-->
+    <div class="row content">
+        <div class="col-sm-12 py-5">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <!--start services-->
+    <div class="row Services" style="background-color:#e8e8e8;">
+        <div class="h1 text-center text-black" style="transform:translateY(70px) ;">OUR <b
+                style="color:#3c463e;text-align:center;">SERVICES</b>
+            <i class="fa fa-taxi" style="color:#3c463e;"></i>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <div class="card w-100 bg-dark " style="background:white;">
+                <div class="card-body"><h3 class="card-title text-center" style="color:white;">FREE SHIPPING</h3>
+                    <i class="fa fa-truck " style="font-size:100px; color:white"></i>
+                    <p class="card-text fs-3" style="color:white;">Discounted price </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 ms-5">
+            <div class="card w-100 bg-dark">
+                <div class="card-body"><h3 class="card-title text-center" style="color:white;">DELIVERY ON TIME</h3>
+                    <i class="fa fa-fire " style="font-size:100px; color:white;"></i>
+                    <p class="card-text fs-3" style="color:white;">Fasted delivery</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 ms-5">
+            <div class="card w-100 bg-dark">
+                <div class="card-body"><h3 class="card-title text-center" style="color:white;">SECURE PAYMENT</h3>
+                    <i class="fa fa-lock" style="font-size:100px; color:white;  "></i>
+                    <p class="card-text fs-3" style="color:white;">100% Secure Payment</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+
+    </div>
+    <!--end services-->
+
+
+    <!--ufooter-->
+    <div class="row ufooter">
+        <div class="col-sm-4 bg-dark">
+            <img class="log" src="{% static 'images/logo1.jpg' %} "><br>
+            <img class="log1" src="{% static 'images/arm.jpg' %} "><br>
+            <img class="log1" src="{% static 'images/arma.jpg' %}">
+        </div>
+        <div class="col-sm-4 bg-dark text-light  pt-4">
+            <b style="border-bottom:3px solid white;" class="fs-3">Contact</b><b class="fs-3"> Address</b>
+            <p class="fs-6"><br>Plot No-43, Behind HP Petrol Pump, <br>Tedhi Pulia Ring Rd, Sector 5<br> Vikash Nagar,
+                Luckhnow, <br>Uttar Pradesh 226022 <br>
+                <br><i class="fa fa-phone" style="color:#ff8f00;"></i> +91-8765432112
+                <br><i class="fa fa-phone" style="color:#ff8f00;"></i> +91-8845370788</p>
+        </div>
+        <div class="col-sm-4 text-light bg-dark fs-3 py-4 ">
+            FAV <b style="color:#e39b11;">Cart India <i class="fa fa-shopping-cart"></i></b>
+            <br>
+            <p class="fs-6 pt-3">Under the TCPA, businesses may not send messages to consumers without
+                their consent. Even if an individual provides has a long-standing.</p>
+            <b style="border-bottom:3px solid white;">Stay</b><b> Connected</b>
+            <br>
+            <p class="px-2 fs-5"><a href="https://www.facebook.com/arman.khanbhai.92"><i
+                    class="fa fa-facebook " style="color:blue;font-size:30px;margin-left:3px;"></i></a>
+                &nbsp;
+                &nbsp;&nbsp;<a href="https://www.youtube.com/channel/UCpID0BRu9G0tuLgZ3U17Q8Q"><i
+                        class="fa fa-youtube " style="color:red;font-size:30px;"></i></a>
+                &nbsp;<a href="#"><i class="fa fa-twitter " style="color:blue;font-size:30px;margin-left:3px;"></i></a>
+                &nbsp;&nbsp;<a href="https://www.instagram.com/"
+                               style="color:red;font-size:30px;margin-left:3px;"><i class="fa fa-instagram "
+                                                                                    title="Vikash Nagar, Luckhnow"></i></a>
+            </p>
+        </div>
+    </div>
+    <!--end ufooter-->
+    <div class="row bfooter ">
+        <div class=" col-sm-6">
+            <p style=" color:white; font-family:Elephant; padding-top:7px;">Developed By Sandhya Pandey,Nidhi Shukla,Anjali Gupta,Durgawati Chaurashiya & Ritu Maurya</p>
+        </div>
+        <div class=" col-sm-6">
+            <p style="color:white; font-family:Elephant; padding-top:7px; text-align:right; ">&copy;FavCart India
+                Pvt.Ltd.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

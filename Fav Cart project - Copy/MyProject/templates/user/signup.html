@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="h2 text-center">Sign Up <b style="color:#3c463e;"> With Us</b></div>
+    <div class="col-sm-1" ></div>
+    <div class="col-sm-5 mt-5 p-5 "  style="min-height:400px; background:white; ">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            Name <input type="text" name="name" required class="form-control" placeholder="Enter Your Name...."><br>
+            Male &nbsp; <input type="radio" name="gender" required>&nbsp;
+            Female &nbsp; <input type="radio" name="gender" required><br>
+            <br>Mobile <input type="number" name="mobile" required class="form-control" placeholder="Enter Your Mob No.....">
+            Email Id<input type="email" name="email" required class="form-control" placeholder="Enter Your Email....">
+            Password<input type="password" name="passwd" required placeholder="Enter Your Password" class="form-control">
+            Re-Enter Password<input type="password" name="passwd" required placeholder="Enter Your Password" class="form-control">
+            Address<textarea class="form-control txta" name="address" style="min-height:80px;" placeholder=" Enter Your Message...." required></textarea><br>
+            ProfilePicture <input type="file" name="fu" required class="form-control">
+            <input type="submit" value="Sign Up" class="btn btn-dark text-warning w-100 ">
+
+        </form>
+    </div>
+    <div class="col-sm-5 mt-5 p-5 ontainer-fluid"  style="background:white">
+         <img src="{% static 'images/form1.jpg' %}" style="max-height:600px;" alt="...">
+    </div>
+    <div class="col-sm-1" ></div>
+</div>
+{% endblock %}

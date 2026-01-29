@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <h2>Cart Items <i class="fa fa-shopping-cart"></i></h2>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <table class="table table-stripted">
+            <tr>
+            <th>Product Id</th>
+            <th>Picture</th>
+            <th>Product Name</th>
+            <th>Product Cat</th>
+            <th>Product Cat</th>
+            <th>Description</th>
+            <th>Total Price</th>
+            <th>Discounted Price</th>
+            <th>Remove Item</th>
+            <th>Order</th>
+            </tr>
+            {% if cart %}
+            {% for x in cart %}
+            <tr>
+                <td>{{x.1}}</td>
+                <td> <img src="/{{x.7}}" class="img-thumbnail" style="max-height-200px"></td>
+                <td>{{x.6}}</td>
+                <td>{{x.12}}</td>
+                <td>{{x.11}}</td>
+                <td><i class="btn btn-outline-danger"><s>{{x.9}}</s></i></td>
+                <td><i class="btn btn-outline-success">{{x.10}}</i></td>
+                <td>{{x.10}}</td>
+                <td><a href="/user/cart?pid={{x.0}}" class="btn btn-danger test-light">Remove Item</a></td>
+                <td><a href="/user/process?pid={{x.1}}&bn=orderfromcart" class="btn btn-dark test-warning">Order Now</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}

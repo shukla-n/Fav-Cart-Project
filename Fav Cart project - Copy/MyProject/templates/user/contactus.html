@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.form-control
+{
+margin-bottom:8px;
+}
+
+
+</style>
+<div class="row contact">
+    <div class="h2 text-center">Contact <b class="text-info">Us<i class="fa fa-phone"></i></b></div>
+<div class="col-sm-1"></div>
+<div class="col-sm-10 bg-light" style="min-height:400px;">
+    <div class="row">
+        <div class="col-sm-5 p-4">
+            <form method="post">
+                {% csrf_token %}<!--cross site reforgery-->
+                {% if S %}
+                <div class="alert alert-success">
+                  Thanks for enquiry...
+                </div>
+                {% endif %}
+                Name<input type="text" name="name" required class="form-control" placeholder="Enter Your Name.."/>
+                Mobile<input type="number" name="mobile" required class="form-control" placeholder="Enter Your Mobile no.."/>
+                Email<input type="email" name="email" required class="form-control" placeholder="Enter Your Email.."/>
+                Message
+                <textarea class="form-control txta" name="msg" style="min-height:80px; resize:none;" placeholder="Enter your Message.."></textarea>
+                <input type="submit" value="Save" class="btn btn-info "/>
+            </form>
+        </div>
+        <div class="col-sm-7">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14413.437783877838!2d83.66309778012604!3d25.426243740640835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398dfc0749448cf3%3A0xcc2e269d35287ed0!2sDildar%20Nagar%2C%20Uttar%20Pradesh%20232326!5e0!3m2!1sen!2sin!4v1632681683152!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+{% endblock %}
